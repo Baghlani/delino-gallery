@@ -5,6 +5,8 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --layout-padding: 5rem;
+  --layout-padding-mobile: 2rem;
 }
 
 @media (prefers-color-scheme: dark) {
