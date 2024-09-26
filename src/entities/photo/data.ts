@@ -1,4 +1,4 @@
-const getPhotos = async (albumId: number): Promise<Photo[]> => {
+export const getPhotos = async (albumId: number): Promise<Photo[]> => {
   const photos = await fetch(`https://jsonplaceholder.typicode.com/photos?albumId=${albumId}`, {
     cache: "force-cache",
   });
