@@ -9,3 +9,13 @@ export const getAlbums = async (): Promise<Album[]> => {
   });
   return albums.json();
 };
+
+export const getAlbum = async (id: number): Promise<Album> => {
+  const album = await fetch(`https://jsonplaceholder.typicode.com/albums/${id}`, {
+    cache: "force-cache",
+    next: {
+      revalidate: 60 * 60,
+    },
+  });
+  return album.json();
+};

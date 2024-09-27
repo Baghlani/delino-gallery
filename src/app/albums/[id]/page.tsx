@@ -1,16 +1,22 @@
+import { getAlbum } from "@/entities/album/data";
+import { Album } from "@/entities/album/types";
 import { getPhotos } from "@/entities/photo/data";
+import { Photo } from "@/entities/photo/types";
 import Image from "next/image";
+import Link from "next/link";
 
 export default async function AlbumPage({ params: { id } }: { params: { id: string } }) {
   const photos: Photo[] = await getPhotos(+id);
+  const album: Album = await getAlbum(+id);
+
   return (
     <div>
-      <h1>Album</h1>
+      <h1 className="mb-4 text-xl md:text-2xl font-light text-white">Album #{id}: {album.title}</h1>
       <div className="grid grid-cols-4 gap-4">
         {photos.map(photo => (
-          <div key={photo.id} className="relative aspect-square">
+          <Link key={photo.id} href={`/photos/${photo.id}`} className="block relative aspect-square">
             <Image src={photo.url} alt={photo.title} fill className="object-cover" />
-          </div>
+          </Link>
         ))}
       </div>
     </div>
