@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { getAlbums } from "../../entities/album/data";
+import { getAlbums } from "../../../entities/album/data";
 
 export default async function Albums() {
   const albums = await getAlbums();
