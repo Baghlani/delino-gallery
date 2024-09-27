@@ -29,6 +29,9 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased
         p-[var(--layout-padding-mobile)] md:p-[var(--layout-padding)]
         font-[family-name:var(--font-geist-sans)]`}
+        style={{
+          background: "radial-gradient(rgba(90, 69, 255, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%), #0E0F24",
+        }}
       >
         {children}
       </body>
