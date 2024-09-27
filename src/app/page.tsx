@@ -3,7 +3,6 @@ import Link from "next/link";
 export default async function Home() {
   return (
     <>
-      <div className="fixed h-dvh w-full top-0 left-0 hue-rotate-[40deg]"></div>
       <div className="relative w-full h-full">
         <div className="absolute w-full box-border space-y-5 top-1/2 -translate-y-1/2">
           <h1

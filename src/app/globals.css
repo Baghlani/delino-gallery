@@ -9,13 +9,6 @@
   --layout-padding-mobile: 2rem;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
 html,
 body {
   height: 100%;
@@ -25,6 +18,10 @@ body {
   color: var(--foreground);
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+.background {
+  background: radial-gradient(rgba(90, 69, 255, 0.2) 0%, rgba(0, 0, 0, 0.2) 100%), #0e0f24;
 }
 
 @layer utilities {

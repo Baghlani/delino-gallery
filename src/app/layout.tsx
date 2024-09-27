@@ -29,11 +29,11 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased
         p-[var(--layout-padding-mobile)] md:p-[var(--layout-padding)]
         font-[family-name:var(--font-geist-sans)]`}
-        style={{
-          background: "radial-gradient(rgba(90, 69, 255, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%), #0E0F24",
-        }}
       >
-        {children}
+        <main className="h-full">
+          <div className="-z-10 fixed top-0 left-0 w-full h-dvh background" />
+          {children}
+        </main>
       </body>
     </html>
   );
