@@ -4,7 +4,7 @@ import { getAlbums } from "../../entities/album/data";
 export default async function Albums() {
   const albums = await getAlbums();
   return (
-    <div className="">
+    <div className="pb-8">
       <div className="space-y-2 mb-4">
         <h3 className="text-xl md:text-2xl font-extraligh text-white">Discover {albums.length} albums</h3>
       </div>
