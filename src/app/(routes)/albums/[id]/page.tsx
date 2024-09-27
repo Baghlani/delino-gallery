@@ -5,6 +5,14 @@ import { Photo } from "@/entities/photo/types";
 import Image from "next/image";
 import Link from "next/link";
 
+export const generateMetadata = async ({ params: { id } }: { params: { id: string } }) => {
+  const album: Album = await getAlbum(+id);
+  return {
+    title: `${album.title} | Delino Gallery`,
+    description: `album: ${album.title} | this is a description of the album`,
+  };
+};
+
 export default async function AlbumPage({ params: { id } }: { params: { id: string } }) {
   const photos: Photo[] = await getPhotos(+id);
   const album: Album = await getAlbum(+id);

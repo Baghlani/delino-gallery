@@ -3,6 +3,14 @@ import { Photo } from "@/entities/photo/types";
 import Image from "next/image";
 import Link from "next/link";
 
+export const generateMetadata = async ({ params: { id } }: { params: { id: string } }) => {
+  const photo: Photo = await getPhoto(+id);
+  return {
+    title: `${photo.title} | Delino Gallery`,
+    description: `photo: ${photo.title} | this is a description of the photo`,
+  };
+};
+
 export default async function PhotoDetailPage({ params: { id } }: { params: { id: string } }) {
   const photo: Photo = await getPhoto(+id);
   return (

@@ -1,5 +1,11 @@
+import { Metadata } from "next";
 import Link from "next/link";
 import { getAlbums } from "../../../entities/album/data";
+
+export const metadata: Metadata = {
+  title: "Albums list | Delino Gallery",
+  description: "a list of Delino's albums",
+};
 
 export default async function Albums() {
   const albums = await getAlbums();
