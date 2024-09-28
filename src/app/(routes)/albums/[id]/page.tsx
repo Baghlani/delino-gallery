@@ -8,7 +8,7 @@ import Link from "next/link";
 import { HiChevronLeft } from "react-icons/hi2";
 
 export const dynamic = "force-static";
-export const revalidate = 60 * 60;
+export const revalidate = 3600;
 
 export const generateMetadata = async ({ params: { id } }: { params: { id: string } }) => {
   const album: Album = await getAlbum(+id);

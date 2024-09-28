@@ -3,7 +3,7 @@ import Link from "next/link";
 import { getAlbums } from "../../../entities/album/data";
 
 export const dynamic = "force-static";
-export const revalidate = 60 * 60;
+export const revalidate = 3600;
 
 export const metadata: Metadata = {
   title: "Albums list | Delino Gallery",
