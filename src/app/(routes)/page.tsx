@@ -12,7 +12,7 @@ export default async function Home() {
             <span className="text-white">Discover and Enjoy</span> from 100 hand-picked albums
             <br className="hidden md:block" /> from the best Delino Artists.
           </div>
-          <Button href="/albums">Let's go</Button>
+          <Button href="/albums">Let&apos;s go</Button>
         </div>
       </div>
     </>
