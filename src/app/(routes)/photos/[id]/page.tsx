@@ -5,6 +5,8 @@ import Image from "next/image";
 import { HiChevronLeft } from "react-icons/hi2";
 import { AlbumDetails } from "./components/AlbumDetails";
 
+export const revalidate = 60 * 60;
+
 export const generateMetadata = async ({ params: { id } }: { params: { id: string } }) => {
   const photo: Photo = await getPhoto(+id);
   return {
@@ -28,8 +30,8 @@ export default async function PhotoDetailPage({ params: { id } }: { params: { id
         </div>
         <aside className="p-4 text-white/90 ring-1 max-md:flex-1 max-md:rounded-b-lg md:rounded-r-lg">
           <h3 className="mb-2 text-lg font-semibold">Photo Details</h3>
-          <div className="my-5 space-y-4 flex flex-col">
-            <div className="space-y-1 flex flex-col">
+          <div className="my-5 flex flex-col space-y-4">
+            <div className="flex flex-col space-y-1">
               <span className="font-light">Title:</span>
               <span>{photo.title}</span>
             </div>
