@@ -1,3 +1,4 @@
+import { cn } from "@/lib/cn";
 import Link from "next/link";
 
 type ButtonProps = {
@@ -14,7 +15,10 @@ export default function Button({
   const Component: React.ElementType = href ? Link : "button";
   return (
     <Component
-      className="mx-auto block w-fit rounded-md bg-white px-8 py-2 font-semibold text-black transition-all duration-300 hover:shadow-lg hover:shadow-white/50"
+      className={cn(
+        "mx-auto block w-fit rounded-md bg-white px-8 py-2 font-semibold text-black transition-all duration-300 hover:shadow-lg hover:shadow-white/50",
+        className,
+      )}
       {...(href ? { href } : { onClick })}
     >
       {children}
