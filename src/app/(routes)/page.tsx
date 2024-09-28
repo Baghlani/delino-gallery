@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Button from "@/components/Button";
 
 export default async function Home() {
   return (
@@ -15,13 +15,7 @@ export default async function Home() {
             <span className="text-white">Discover and Enjoy</span> from 100 hand-picked albums
             <br className="hidden md:block" /> from the best Delino Artists.
           </div>
-          <Link
-            href="/albums"
-            className="block w-fit mx-auto bg-white hover:shadow-lg hover:shadow-white/50
-            transition-all duration-300 text-black font-semibold rounded-md px-8 py-2"
-          >
-            Let's go
-          </Link>
+          <Button href="/albums">Let's go</Button>
         </div>
       </div>
     </>
