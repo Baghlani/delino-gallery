@@ -3,6 +3,7 @@ import { getPhoto } from "@/entities/photo/data";
 import { Photo } from "@/entities/photo/types";
 import Image from "next/image";
 import { HiChevronLeft } from "react-icons/hi2";
+import { AlbumDetails } from "./components/AlbumDetails";
 
 export const generateMetadata = async ({ params: { id } }: { params: { id: string } }) => {
   const photo: Photo = await getPhoto(+id);
@@ -26,16 +27,13 @@ export default async function PhotoDetailPage({ params: { id } }: { params: { id
           <Image src={photo.url} alt={photo.title} fill className="object-cover" />
         </div>
         <aside className="p-4 text-white/90 ring-1 max-md:flex-1 max-md:rounded-b-lg md:rounded-r-lg">
-          <h3 className="mb-2 text-lg">Photo Details</h3>
-          <div className="flex flex-col gap-1">
-            <div className="flex flex-col gap-1">
-              <span className="font-mono">Title:</span>
+          <h3 className="mb-2 text-lg font-semibold">Photo Details</h3>
+          <div className="my-5 space-y-4 flex flex-col">
+            <div className="space-y-1 flex flex-col">
+              <span className="font-light">Title:</span>
               <span>{photo.title}</span>
             </div>
-            <div className="flex flex-col gap-1">
-              <span className="font-mono">Album:</span>
-              <span>{photo.albumId}</span>
-            </div>
+            <AlbumDetails albumId={photo.albumId} />
           </div>
         </aside>
       </div>
