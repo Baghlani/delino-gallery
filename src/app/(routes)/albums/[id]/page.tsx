@@ -33,7 +33,7 @@ export default async function AlbumPage({ params: { id } }: { params: { id: stri
           <Link
             key={photo.id}
             href={`/photos/${photo.id}`}
-            className="relative block aspect-square"
+            className="relative block aspect-square hover:scale-105 transition-all duration-300"
           >
             <Image src={photo.url} alt={photo.title} fill className="object-cover" />
           </Link>
