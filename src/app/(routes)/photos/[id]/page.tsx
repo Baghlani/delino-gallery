@@ -5,6 +5,7 @@ import Image from "next/image";
 import { HiChevronLeft } from "react-icons/hi2";
 import { AlbumDetails } from "./components/AlbumDetails";
 
+export const dynamic = "force-static";
 export const revalidate = 60 * 60;
 
 export const generateMetadata = async ({ params: { id } }: { params: { id: string } }) => {

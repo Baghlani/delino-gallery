@@ -7,6 +7,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { HiChevronLeft } from "react-icons/hi2";
 
+export const dynamic = "force-static";
 export const revalidate = 60 * 60;
 
 export const generateMetadata = async ({ params: { id } }: { params: { id: string } }) => {
@@ -35,7 +36,7 @@ export default async function AlbumPage({ params: { id } }: { params: { id: stri
           <Link
             key={photo.id}
             href={`/photos/${photo.id}`}
-            className="relative block aspect-square hover:scale-105 transition-all duration-300"
+            className="relative block aspect-square transition-all duration-300 hover:scale-105"
           >
             <Image src={photo.url} alt={photo.title} fill className="object-cover" />
           </Link>
