@@ -7,16 +7,22 @@ test.describe("Album List Page", () => {
     expect(albumTitles.length).toBeGreaterThan(0);
   });
 
-  test("should navigate to album images page on album click", async ({ page }: { page: Page }) => {
+  test("should navigate to correct album page when album link is clicked", async ({
+    page,
+  }: {
+    page: Page;
+  }) => {
     await page.goto("/albums");
     const firstAlbumLink = await page.locator("a", { hasText: "Album" }).first();
-
-    await firstAlbumLink.click();
     const albumId = await firstAlbumLink
       .getAttribute("href")
       .then((href) => href?.split("/").pop());
+    const albumTitle = await firstAlbumLink.locator("h2").textContent();
+
+    await firstAlbumLink.click();
     await page.waitForURL("/albums/*");
-    
+
     expect(page.url()).toContain(`/albums/${albumId}`);
+    expect(await page.locator("h1").textContent()).toMatch(new RegExp(albumTitle!));
   });
 });
