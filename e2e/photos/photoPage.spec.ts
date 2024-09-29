@@ -20,6 +20,21 @@ test.describe("Photo Page", () => {
     await expect(imageElement).toHaveAttribute("src");
   });
 
+  test("should load the photo's album title", async ({ page }) => {
+    await page.goto(`/photos/${photoId}`);
+    const fakeAlbum = { id: 1, title: "Album #1" };
+
+    await page.route("**/albums/*", (route) => {
+      route.fulfill({ status: 200, body: JSON.stringify(fakeAlbum) });
+    });
+
+    const albumLink = page.getByTestId("photo-album-link");
+
+    await expect(albumLink).toBeVisible();
+    await expect(albumLink).toHaveText(fakeAlbum.title);
+    await expect(albumLink).toHaveAttribute("href", `/albums/${fakeAlbum.id}`);
+  });
+
   test("should have a back to album link", async ({ page }) => {
     await page.goto(`/photos/${photoId}`);
     const backButton = page.getByRole("link", { name: /back/i });

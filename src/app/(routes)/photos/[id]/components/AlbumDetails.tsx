@@ -1,6 +1,7 @@
 "use client";
 
 import { Album } from "@/entities/album/types";
+import Link from "next/link";
 import useSWR from "swr";
 
 const fetcher = (url: string) => fetch(url).then((res) => res.json());
@@ -12,10 +13,12 @@ export const AlbumDetails = ({ albumId }: { albumId: number }) => {
 
   if (error) return <div className="text-red-500">Failed to load album title</div>;
   return (
-    <div className="space-y-1 flex flex-col">
+    <div className="flex flex-col space-y-1">
       <span className="font-light">Album:</span>
       {data ? (
-        <span>{data.title}</span>
+        <Link href={`/albums/${data.id}`} data-testid="photo-album-link">
+          {data.title}
+        </Link>
       ) : (
         <div className="mt-2 h-3 w-3/4 animate-pulse rounded-lg bg-gray-500" />
       )}
