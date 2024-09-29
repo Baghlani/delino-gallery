@@ -16,7 +16,7 @@ export const generateMetadata = async ({ params: { id } }: { params: { id: strin
   };
 };
 
-export default async function PhotoDetailPage({ params: { id } }: { params: { id: string } }) {
+export default async function PhotoPage({ params: { id } }: { params: { id: string } }) {
   const photo: Photo = await getPhoto(+id);
   return (
     <div className="flex h-[calc(100dvh-var(--layout-padding-mobile)-var(--layout-padding-mobile))] flex-col md:h-[calc(100dvh-var(--layout-padding)-var(--layout-padding))]">

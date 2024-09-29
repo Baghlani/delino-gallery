@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   description: "a list of Delino's albums",
 };
 
-export default async function Albums() {
+export default async function AlbumsListPage() {
   const albums = await getAlbums();
   return (
     <div className="pb-8">
