@@ -13,7 +13,7 @@ test.describe("Album List Page", () => {
     page: Page;
   }) => {
     await page.goto("/albums");
-    const firstAlbumLink = await page.locator("a", { hasText: "Album" }).first();
+    const firstAlbumLink = page.locator("a", { hasText: "Album" }).first();
     const albumId = await firstAlbumLink
       .getAttribute("href")
       .then((href) => href?.split("/").pop());
