@@ -27,7 +27,13 @@ export default async function PhotoPage({ params: { id } }: { params: { id: stri
       <h1 className="mb-3 text-xl text-white/90 md:text-2xl">{photo.title}</h1>
       <div className="flex flex-1 flex-col md:grid md:grid-cols-[1fr_270px] lg:grid-cols-[1fr_340px]">
         <div className="relative flex-[2_1_0%] overflow-hidden max-md:rounded-t-lg md:rounded-l-lg">
-          <Image src={photo.url} alt={photo.title} fill className="object-cover" />
+          <Image
+            src={photo.url}
+            alt={photo.title}
+            fill
+            className="object-cover"
+            data-testid="photo-img"
+          />
         </div>
         <aside className="p-4 text-white/90 ring-1 max-md:flex-1 max-md:rounded-b-lg md:rounded-r-lg">
           <h3 className="mb-2 text-lg font-semibold">Photo Details</h3>
