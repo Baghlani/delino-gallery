@@ -1,11 +1,9 @@
-import Button from "@/components/Button";
 import { getAlbum } from "@/entities/album/data";
 import { Album } from "@/entities/album/types";
 import { getPhotos } from "@/entities/photo/data";
 import { Photo } from "@/entities/photo/types";
 import Image from "next/image";
 import Link from "next/link";
-import { HiChevronLeft } from "react-icons/hi2";
 
 export const dynamic = "force-static";
 export const revalidate = 3600;
@@ -24,10 +22,6 @@ export default async function AlbumPage({ params: { id } }: { params: { id: stri
 
   return (
     <div>
-      <Button type="outlined" href="/albums" className="mb-4 space-x-2 ps-2">
-        <HiChevronLeft className="size-4" />
-        <div>Back to albums</div>
-      </Button>
       <h1 className="mb-4 font-light text-white sm:text-xl md:text-2xl">
         Album #{id}: {album.title}
       </h1>
