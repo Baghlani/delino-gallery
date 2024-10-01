@@ -24,7 +24,7 @@ test.describe("Photo Page", () => {
     await page.goto(`/photos/${photoId}`);
     const fakeAlbum = { id: 1, title: "Album #1" };
 
-    await page.route("**/albums/*", (route) => {
+    await page.route("**/albums/**", (route) => {
       route.fulfill({ status: 200, body: JSON.stringify(fakeAlbum) });
     });
 
