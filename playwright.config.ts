@@ -32,6 +32,12 @@ export default defineConfig({
     trace: "on-first-retry",
   },
 
+  webServer: {
+    command: "npm run build && npm run start",
+    port: 3000,
+    reuseExistingServer: true,
+  },
+
   /* Configure projects for major browsers */
   projects: [
     {
