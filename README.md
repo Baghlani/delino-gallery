@@ -1,36 +1,69 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Delino Gallery
 
-## Getting Started
+This project is a simple Album System built using Next.js 14 in App Directory Mode. It includes Four main pages:
 
-First, run the development server:
+1. A page which contains the brand a slogan as index page.
+2. A page that lists all albums.
+3. A dynamic page that shows the photos from a specific album.
+4. A detailed page for viewing a single photo.
 
-```bash
+## Features
+
+- Server-side data fetching
+- Caching and performance optimization
+- Metadata generation to improve SEO
+- Responsive design
+- Smooth navigation between albums and images using Next.js like loading files and Link component
+- Optimized images using next/image component
+- E2E tests with Playwright
+
+## Caching Strategy and Performance Optimizations
+
+- **Server-Side Data Fetching**: All data fetching is done on the server side to improve SEO and performance.
+- **Next.js Cache**: Utilizes Next.js built-in caching capabilities to cache data and pages where applicable.
+- **Revalidation**: Pages are revalidated every hour (`revalidate = 3600`) to ensure data freshness.
+
+## Installation
+
+1. Install dependencies:
+   ```sh
+   npm install
+   ```
+
+## Running the Development Server
+
+To start the development server, run:
+
+```sh
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+The app will be available at `http://localhost:3000`.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Building and Serving the Standalone Build
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Using Docker
 
-## Learn More
+1. Build the Docker image:
 
-To learn more about Next.js, take a look at the following resources:
+   ```sh
+   docker build -t delino-gallery .
+   ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+2. Run the Docker container:
+   ```sh
+   docker run -p 3000:3000 delino-gallery
+   ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Using Build Script
 
-## Deploy on Vercel
+1. Build the project:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+   ```sh
+   npm run build
+   ```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+2. Start the server:
+   ```sh
+   npm start
+   ```
