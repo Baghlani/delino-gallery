@@ -21,13 +21,12 @@ test.describe("Photo Page", () => {
   });
 
   test("should load the photo's album title", async ({ page }) => {
-    await page.goto(`/photos/${photoId}`);
     const fakeAlbum = { id: 1, title: "Album #1" };
-
     await page.route("**/albums/**", (route) => {
       route.fulfill({ status: 200, body: JSON.stringify(fakeAlbum) });
     });
 
+    await page.goto(`/photos/${photoId}`);
     const albumLink = page.getByTestId("photo-album-link");
 
     await expect(albumLink).toBeVisible();
