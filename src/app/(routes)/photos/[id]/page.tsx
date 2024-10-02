@@ -24,7 +24,7 @@ export default async function PhotoPage({ params: { id } }: { params: { id: stri
         <HiChevronLeft className="size-4" />
         <div>Back to album #{photo.albumId}</div>
       </Button>
-      <h1 className="mb-3 text-xl text-white/90 md:text-2xl">{photo.title}</h1>
+      <h1 className="mb-3 text-lg sm:text-xl text-white/90 md:text-2xl">{photo.title}</h1>
       <div className="flex flex-1 flex-col md:grid md:grid-cols-[1fr_270px] lg:grid-cols-[1fr_340px]">
         <div className="relative min-h-[300px] flex-[2_1_0%] overflow-hidden max-md:rounded-t-lg md:rounded-l-lg">
           <Image

@@ -27,7 +27,7 @@ export default async function AlbumPage({ params: { id } }: { params: { id: stri
       </h1>
       <div
         data-testid="photo-grid"
-        className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-5"
+        className="grid grid-cols-2 gap-4 max-[440px]:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-5"
       >
         {photos.map((photo) => (
           <Link
