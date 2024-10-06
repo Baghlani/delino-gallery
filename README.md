@@ -9,6 +9,7 @@ This project is a simple Album System built using Next.js 14 in App Directory Mo
 
 ## Features
 
+- Filter Albums based on UserId
 - Server-side data fetching
 - Caching and performance optimization
 - Metadata generation to improve SEO
@@ -21,8 +22,8 @@ This project is a simple Album System built using Next.js 14 in App Directory Mo
 ## Caching Strategy and Performance Optimizations
 
 - **Server-Side Data Fetching**: All data fetching is done on the server side using React Server Components to improve SEO and performance.
-- **Next.js Cache**: Utilizes Next.js built-in caching capabilities to cache data and pages where applicable. All main pages are configured with the `dynamic` property set to `'force-static'`, to ensure that the page is statically generated and cached on the first visit.
-- **Revalidation**: Pages are revalidated every hour (`revalidate = 3600`) to ensure data freshness.
+- **Next.js Cache**: Utilizes Next.js built-in caching capabilities to cache data and pages where applicable. Main pages are configured with the `dynamic` property set to `'force-static'`, to ensure that the page is statically generated and cached on the first visit.
+- **Revalidation**: Pages are revalidated periodically to ensure data freshness.
 - **Optimized Images**: Utilizes the `next/image` component to optimize images for faster loading and better performance. This includes resizing, compressing, and converting images to modern formats like AVIF. The optimized images are cached on the first visit and reused for subsequent requests, ensuring efficient and quick image delivery.
 - **Optimized Fonts**: Utilizes the `next/font` component to optimize fonts for faster loading and better performance.
 
@@ -87,13 +88,11 @@ This project uses Playwright for E2E testing. To run the tests, use the followin
 npm run test
 ```
 
-
 To run the tests in headed mode, use the following command:
 
 ```sh
 npm run test:headed
 ```
-
 
 To run the tests in debug mode, use the following command:
 
