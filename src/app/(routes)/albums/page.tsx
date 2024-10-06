@@ -1,5 +1,4 @@
 import { getUsers } from "@/entities/user/data";
-import { Metadata } from "next";
 import Link from "next/link";
 import { getAlbums } from "../../../entities/album/data";
 import { UserSelect } from "./UserSelect";
@@ -13,9 +12,17 @@ export const dynamicParams = false;
 
 export const revalidate = 86400; //1 day in seconds
 
-export const metadata: Metadata = {
-  title: "Albums list | Delino Gallery",
-  description: "a list of Delino's albums",
+export const generateMetadata = async ({
+  searchParams: { userId },
+}: {
+  searchParams: { userId: string };
+}) => {
+  const users = await getUsers();
+  const userName = userId && users.find((user) => user.id === +userId)?.name;
+  return {
+    title: `${userName ? `${userName}'s ` : ""}Albums list | Delino Gallery`,
+    description: `a list of Delino's albums ${userName && `from ${userName}`}`,
+  };
 };
 
 export default async function AlbumsListPage({
