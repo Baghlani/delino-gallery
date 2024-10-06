@@ -1,7 +1,7 @@
 import { getUsers } from "@/entities/user/data";
 import Link from "next/link";
 import { getAlbums } from "../../../entities/album/data";
-import { UserSelect } from "./UserSelect";
+import { UserSelect } from "./components/UserSelect";
 
 export const generateStaticParams = async () => {
   const users = await getUsers();
