@@ -28,7 +28,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} font-[family-name:var(--font-geist-sans)] antialiased`}
       >
-        <main className="h-full p-[var(--layout-padding-mobile)] md:p-[var(--layout-padding)]">
+        <main className="h-full p-[var(--layout-padding-mobile)] text-white md:p-[var(--layout-padding)]">
           <div className="background fixed left-0 top-0 -z-10 h-dvh w-full" />
           {children}
         </main>
