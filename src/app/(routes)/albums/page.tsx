@@ -11,7 +11,7 @@ export const generateStaticParams = async () => {
 
 export const dynamicParams = false;
 
-export const revalidate = 3600;
+export const revalidate = 86400; //1 day in seconds
 
 export const metadata: Metadata = {
   title: "Albums list | Delino Gallery",
@@ -36,7 +36,7 @@ export default async function AlbumsListPage({
       <UserSelect users={users} />
       <div className="mt-3 flex flex-col space-y-4 text-neutral-300 md:text-lg">
         {albums.map((album) => (
-          <Link key={album.id} href={`/albums/${album.id}`}>
+          <Link key={album.id} href={`/albums/${album.id}`} prefetch={true}>
             <div className="font-mono text-[15px] text-neutral-100/50">Album #{album.id}</div>
             <h2>{album.title}</h2>
           </Link>
