@@ -1,8 +1,16 @@
+import { getUsers } from "@/entities/user/data";
 import { Metadata } from "next";
 import Link from "next/link";
 import { getAlbums } from "../../../entities/album/data";
+import { UserSelect } from "./UserSelect";
 
-export const dynamic = "force-static";
+export const generateStaticParams = async () => {
+  const users = await getUsers();
+  return users.map((user) => ({ userId: user.id.toString() }));
+};
+
+export const dynamicParams = false;
+
 export const revalidate = 3600;
 
 export const metadata: Metadata = {
@@ -10,15 +18,22 @@ export const metadata: Metadata = {
   description: "a list of Delino's albums",
 };
 
-export default async function AlbumsListPage() {
-  const albums = await getAlbums();
+export default async function AlbumsListPage({
+  searchParams: { userId },
+}: {
+  searchParams: { userId: string };
+}) {
+  const albums = await getAlbums(+userId);
+  const users = await getUsers();
   return (
     <div className="pb-8">
       <div className="mb-4 space-y-2">
         <h1 className="font-extraligh text-xl text-white md:text-2xl">
-          Discover {albums.length} albums
+          Discover {albums.length} albums{" "}
+          {userId && `from ${users.find((user) => user.id === +userId)?.name}`}
         </h1>
       </div>
+      <UserSelect users={users} />
       <div className="mt-3 flex flex-col space-y-4 text-neutral-300 md:text-lg">
         {albums.map((album) => (
           <Link key={album.id} href={`/albums/${album.id}`}>
