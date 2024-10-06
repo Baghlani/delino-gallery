@@ -26,12 +26,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased
-        p-[var(--layout-padding-mobile)] md:p-[var(--layout-padding)]
-        font-[family-name:var(--font-geist-sans)]`}
+        className={`${geistSans.variable} ${geistMono.variable} font-[family-name:var(--font-geist-sans)] antialiased`}
       >
-        <main className="h-full">
-          <div className="-z-10 fixed top-0 left-0 w-full h-dvh background" />
+        <main className="h-full p-[var(--layout-padding-mobile)] md:p-[var(--layout-padding)]">
+          <div className="background fixed left-0 top-0 -z-10 h-dvh w-full" />
           {children}
         </main>
       </body>
